@@ -1,0 +1,232 @@
+<!-- 效果一：输入手机号和密码，点击注册并登录按钮，弹出提示窗，含有手机号、密码以及提示
+效果二：左上角按钮实现随机背景色
+效果三：向下浏览页面出现回到顶部按钮，并回到顶部 -->
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="UTF-8">
+  	<title>CHINA MANNED SPACE</title>
+    <style>
+	   *{
+			margin: 0;
+			padding: 0;
+		}
+
+		a{
+			text-decoration: none;
+		}
+
+		ul{list-style-type:none; }
+
+		a:hover{color: blue;}
+
+		#hugeBox{
+			width: 100%;
+		}
+
+		.all{
+			text-align: center;
+			margin: 0 auto;
+			width: 1200px;
+			background-color: #acd6ff;
+		}
+
+		.up1{
+			width: 1200px;
+
+		}
+		.logo{
+			float: left;
+		}
+
+		.search{
+			float: right;
+		}
+
+		.nav{
+			width: 1200px;
+			float: left;
+			height: 60px;
+			background-color: rgb(0,0,255);
+		}
+
+		.nav>ul>li {
+			float: left;
+			font-size: 25px;
+		}
+
+		.aver{
+			line-height: 60px;
+			padding-left: 100px;
+		}
+
+		.nav li:hover>a{
+			background-color: blue;
+			color: white;
+		}
+
+		.banner{
+			display: inline-block;
+			width: 100%;
+			height: 450px;
+			margin:20px 0px 20px;
+		}
+		
+		.news{
+			float: right;
+			height: 200px;
+			width: 910px;
+			font-size: 20px;
+		}
+
+		.qi1{
+			float: left;
+			padding-right: 80px;
+		}
+
+		.qi2{
+			float: left;
+			padding-right: 70px;
+		}
+		.qi3{
+			float: left;
+		}
+		.n1{
+			height: 250px;
+			width: 300px;
+			float: left;
+		}
+
+		.mid{
+			float: left;
+			padding-top: 120px;
+			font-size: 25px;
+		}
+
+		.down{
+			display: inline-block;
+			padding-top: 100px;
+			width: 100%;
+			height: 150px;
+		}
+		
+		.down1{
+			display: inline-block;
+			padding-top: 10px;
+			width: 100%;
+			height: 150px;
+		}
+		.bottom{
+			background-color: #0088ff;
+			height: 100px;
+			color: white;
+		}
+
+		.bottom>p{
+			padding-top: 10px;
+		}
+
+		#myBtn {
+			display: none;
+			position: fixed; 
+			bottom: 20px; 
+			right: 30px; 
+			z-index: 99; 
+			border: none;
+			background-color: blue; 
+			color: white; 
+			padding: 15px; 
+			outline: none;
+			border-radius: 10px;
+		}
+
+ 
+    </style>
+  </head>
+
+	 <body>
+	 	<div id="hugeBox" style="background-color: ;" >
+	 		<button onclick="randomColor()" >随机背景色</button>
+	 		<button onclick="backTop()" id="myBtn" title="回顶部">返回顶部</button>
+	 		<div class="all">
+		  		<div class="up1">
+		  			<div class="logo">
+		  				<img src="img/66.png">
+		  			</div>
+		  			<div class="search">
+		  				<form>
+		  					搜索<input type="text" value="search for" name="search">
+		  					<br>
+		  					手机号<input type="text" name="number" id="number">
+		  					密码<input type="password" name="secret" id="password">
+		  					<input type="button" name="in" value="注册并登录" onclick="popMessage()">
+		  				</form>
+		  			</div>
+		  		</div>
+	
+			  	<div class="nav">
+			  		<ul >
+			  			<li class="aver">
+			  				<a>关于工程</a>
+			  			</li>
+			  			<li class="aver"><a>官方公告</a></li>
+			  			<li class="aver"><a>国际合作</a></li>
+			  			<li class="aver"><a>交流互动</a></li>
+			  			<li class="aver"><a>联系我们</a></li>
+			  		</ul>
+			  	</div>
+
+		  		<img src="img/0.jpg" class="banner">
+
+		  		<p class="mid"><a>重要栏目 最新资讯：<a></p>
+		  		<div class="news">
+		  			<a href=""><img src="img/1.jpg" class="n1"></a>
+		  			<a href=""><img src="img/2.jpg" class="n1"></a>
+		  			<a href=""><img src="img/3.jpg" class="n1"></a>
+		  			<a href=""><p class="qi1">试验船返回舱开舱仪式在京举行</p></a>
+		  			<a href=""><p class="qi2">试验船返回舱成功着陆 </p></a>
+		  			<a href=""><p class="qi3">中共中央 国务院 传来首飞贺电</p></a>
+		  		</div>
+
+
+		   		<img src="img/4.jpg" class="down">
+		  		<img src="img/5.png"  class="down1">
+		  		<img src="img/6.jpg" class="down1" >
+	
+				<div class="bottom">
+					 <p>版权所有：中国载人航天工程官方网站</p>
+					 <p>主办方：中国载人航天工程办公室</p>
+					 <p>备案序号：京ICP备11002712号-1</p>
+		  		</div>
+			</div>
+	 	</div>
+	 	
+		<script type="text/javascript">
+			function popMessage(){
+				 alert("注册并登录成功！\n"+"您的手机号为："+document.getElementById("number").value+"\n"+"您的密码为："+document.getElementById("password").value+"\n"+"请牢记您的手机号和密码!");
+			}
+
+			function randomColor(){
+				var aColor = "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")";
+				document.getElementById("hugeBox").style.backgroundColor=aColor;
+			}
+
+			window.onscroll = function() {scrollFunction()};
+			 
+			function scrollFunction() {
+			    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        document.getElementById("myBtn").style.display = "block";
+			    } else {
+			        document.getElementById("myBtn").style.display = "none";
+			    }
+			}
+			 
+			function backTop() {
+			    document.body.scrollTop = 0;
+			    document.documentElement.scrollTop = 0;
+			}
+			
+		</script>
+
+  </body>
+</html>
